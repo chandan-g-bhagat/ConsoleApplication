@@ -11,16 +11,18 @@ namespace TestLibrary
         private static int i = 10;
 
         private int j=10;
-        public static string TestFunction()
+        public static int TestFunction()
         {
-            return i.ToString();
+            return i;
         }
 
-        public string TestNonStatic()
+        public int TestNonStatic()
         {
             i++;
             j++;
-            return j.ToString();
+            //line of codes
+            
+            return j;
         }
     }
 }

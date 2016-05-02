@@ -40,8 +40,8 @@ namespace FormTest
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            Test t = new Test();
-            lbltest.Text = t.TestFunction();
+            
+            lbltest.Text = Test.TestFunction().ToString();
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
