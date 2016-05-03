@@ -14,7 +14,10 @@ namespace ConsoleTest
         {
             //Testmessage();
 
-            Queue();
+            //Queue();
+
+            Stack();
+
             Console.ReadLine();
         }
 
@@ -34,7 +37,7 @@ namespace ConsoleTest
 
         static void Queue()
         {
-            CustomQueue cq = new CustomQueue();
+            CustomQueue cq = new CustomQueue(20);
             cq.Enqueue(10);
             cq.Enqueue(20);
             cq.Enqueue(30);
@@ -57,6 +60,35 @@ namespace ConsoleTest
             cq.Enqueue(40);
             Console.WriteLine("After adding 40 : ");
             tmp = cq.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+        }
+
+        static void Stack()
+        {
+            CustomStack cs = new CustomStack();
+            cs.Push(10);
+            
+            var tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+
+            cs.Pop();
+            cs.Pop();
+            Console.WriteLine("After Pop :");
+            tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+
+            cs.Push(40);
+            Console.WriteLine("After push 40 : ");
+            tmp = cs.GetItem();
             for (int i = 0; i < tmp.Length; i++)
             {
                 Console.WriteLine("Item -> " + tmp[i]);

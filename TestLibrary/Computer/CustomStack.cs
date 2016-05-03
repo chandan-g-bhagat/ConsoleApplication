@@ -6,34 +6,37 @@ using System.Threading.Tasks;
 
 namespace TestLibrary.Computer
 {
-    public class CustomQueue
+    public class CustomStack
     {
         private int[] _item { get; set; }
         public int Count = 0;
 
-        public CustomQueue(int i)
+        public CustomStack(int i)
         {
             _item = new int[i];
         }
-        public CustomQueue()
+
+        public CustomStack()
         {
             _item = new int[10];
         }
 
-        public void Enqueue(int i)
+        public void Push(int i)
         {
-            _item[Count] = i;
-            Count++;
+            if (Count<10)
+            {
+                _item[Count] = i;
+                Count++;
+            }
         }
 
-        public void Dequeue()
+        public void Pop()
         {
-            for (int i = 1; i < Count; i++)
+            if (Count>0)
             {
-                _item[i - 1] = _item[i];
+                _item[Count - 1] = 0;
+                Count--;
             }
-            _item[Count - 1] = 0;
-            Count--;
         }
 
         public int[] GetItem()
@@ -43,18 +46,5 @@ namespace TestLibrary.Computer
             return tmp;
 
         }
-
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
