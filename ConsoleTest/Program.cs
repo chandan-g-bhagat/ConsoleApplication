@@ -16,7 +16,11 @@ namespace ConsoleTest
 
             //Queue();
 
-            Stack();
+            //Stack();
+
+            //StackV2();
+
+            StackV3();
 
             Console.ReadLine();
         }
@@ -92,6 +96,66 @@ namespace ConsoleTest
             for (int i = 0; i < tmp.Length; i++)
             {
                 Console.WriteLine("Item -> " + tmp[i]);
+            }
+        }
+
+        static void StackV2()
+        {
+            CustomStackV2 cs = new CustomStackV2();
+            for (int i = 0; i < 20; i++)
+            {
+                cs.Push(i * 10);
+            }
+
+            var tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+
+            cs.Pop();
+            cs.Pop();
+            Console.WriteLine("After Pop :");
+            tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+
+            cs.Push(40);
+            Console.WriteLine("After push 40 : ");
+            tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+        }
+        static void StackV3()
+        {
+            CustomStackV3 cs = new CustomStackV3();
+            for (int i = 0; i < 20; i++)
+            {
+                cs.Push(i * 10);
+            }
+
+            foreach (var item in cs.Items)
+            {
+                Console.WriteLine("Item -> " + item);
+            }
+
+            cs.Pop();
+            cs.Pop();
+            Console.WriteLine("After Pop :");
+            foreach (var item in cs.Items)
+            {
+                Console.WriteLine("Item -> " + item);
+            }
+
+            cs.Push(40);
+            Console.WriteLine("After push 40 : ");
+            foreach (var item in cs.Items)
+            {
+                Console.WriteLine("Item -> " + item);
             }
         }
     }

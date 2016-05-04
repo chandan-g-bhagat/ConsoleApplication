@@ -21,5 +21,32 @@ namespace TestLibraryTests.QueueTest
             Assert.AreEqual(3, tmp.Length);
 
         }
+
+        [TestMethod]
+        public void StackV2Test()
+        {
+            CustomStackV2 cs = new CustomStackV2();
+            for (int i = 0; i < 20; i++)
+            {
+                cs.Push(i * 10);
+            }
+
+            Assert.AreEqual(20, cs.Count);
+            cs.Pop();
+            Assert.AreEqual(19, cs.Count);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
