@@ -20,7 +20,11 @@ namespace ConsoleTest
 
             //StackV2();
 
-            StackV3();
+            //StackV3();
+
+            //QueueV2(); 
+
+            QueueV3();
 
             Console.ReadLine();
         }
@@ -69,8 +73,69 @@ namespace ConsoleTest
                 Console.WriteLine("Item -> " + tmp[i]);
             }
         }
+        static void QueueV2()
+        {
+            CustomQueueV2 cs = new CustomQueueV2();
+            for (int i = 0; i < 20; i++)
+            {
+                cs.Enqueue(i * 10);
+            }
 
-        static void Stack()
+            var tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+
+            cs.Dequeue();
+            cs.Dequeue();
+            Console.WriteLine("After Dequeuing :");
+            tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+
+            cs.Enqueue(40);
+            Console.WriteLine("After Enqueuing 40 : ");
+            tmp = cs.GetItem();
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                Console.WriteLine("Item -> " + tmp[i]);
+            }
+        }
+
+        static void QueueV3()
+        {
+            CustomQueueV3 cs = new CustomQueueV3();
+            for (int i = 0; i < 20; i++)
+            {
+                cs.Enqueue(i * 10);
+            }
+
+            foreach (var item in cs.Items)
+            {
+                Console.WriteLine("Item -> " + item);
+            }
+
+            cs.Dequeue();
+            cs.Dequeue();
+            Console.WriteLine("After Dequeue :");
+            foreach (var item in cs.Items)
+            {
+                Console.WriteLine("Item -> " + item);
+            }
+
+            cs.Enqueue(40);
+            Console.WriteLine("After Enqueue 40 : ");
+            foreach (var item in cs.Items)
+            {
+                Console.WriteLine("Item -> " + item);
+            }
+        }
+    
+
+    static void Stack()
         {
             CustomStack cs = new CustomStack();
             cs.Push(10);

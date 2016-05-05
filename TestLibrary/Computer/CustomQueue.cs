@@ -46,6 +46,54 @@ namespace TestLibrary.Computer
 
 
     }
+
+    public class CustomQueueV2
+    {
+        private int[] _item = new int[1];
+        public int Count = 0;
+
+        public void Enqueue(int i)
+        {
+            _item[Count] = i;
+            Count++;
+            Array.Resize(ref _item, Count + 1);
+        }
+
+        public void Dequeue()
+        {
+            if (Count > 0)
+            {
+                _item[Count - 1] = 0;
+                Count--;
+                Array.Resize(ref _item, Count + 1);
+            }
+        }
+
+        public int[] GetItem()
+        {
+            int[] tmp = new int[Count];
+            Array.Copy(_item, tmp, Count);
+            return tmp;
+
+        }
+    }
+
+    public class CustomQueueV3
+    {
+        public List<int> Items = new List<int>();
+
+        public void Enqueue(int i)
+        {
+            Items.Add(i);
+        }
+
+        public void Dequeue()
+        {
+            Items.RemoveAt(Items.Count - 1);
+        }
+
+
+    }
 }
 
 
