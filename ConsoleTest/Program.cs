@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestLibrary;
 using TestLibrary.Computer;
-
+using TestLibrary.Inheritence;
 namespace ConsoleTest
 {
     class Program
@@ -26,7 +26,30 @@ namespace ConsoleTest
 
             //QueueV3();
 
+            Inheritence();
+
             Console.ReadLine();
+        }
+
+        static void Inheritence()
+        {
+            GrandFather surya = new GrandFather("Surya");
+            Father Chandra = new Father("Chandra", "Jung");
+            Uncle Hari = new Uncle("Hari");
+            Me Shyam = new Me("Shyam");
+
+            Console.WriteLine("Gran Father Details :");
+            Console.WriteLine(surya.FirstName);
+            Console.WriteLine(surya.LastName);
+
+            Console.WriteLine("Father's Detail :");
+            Console.WriteLine(Chandra.FirstName + " " + Chandra.MiddleName + " " + Chandra.LastName);
+
+            Console.WriteLine("Uncle's Detail :");
+            Console.WriteLine(Hari.FirstName + " " + Hari.LastName);
+
+            Console.WriteLine("My Details : ");
+            Console.WriteLine(Shyam.FirstName + " " + Shyam.MiddleName + " " + Shyam.LastName);
         }
 
         static void QueueTemplateFunction()
@@ -35,7 +58,7 @@ namespace ConsoleTest
             strque.Enqueue("123");
 
             QueueTemplateV3<int> intque = new QueueTemplateV3<int>();
-
+            //
 
            
         }
