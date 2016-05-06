@@ -63,9 +63,12 @@ namespace TestLibrary.Computer
         {
             if (Count > 0)
             {
+                for (int i = 1; i < Count; i++)
+                {
+                    _item[i - 1] = _item[i];
+                }
                 _item[Count - 1] = 0;
                 Count--;
-                Array.Resize(ref _item, Count + 1);
             }
         }
 

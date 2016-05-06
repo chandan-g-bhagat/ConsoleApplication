@@ -24,9 +24,20 @@ namespace ConsoleTest
 
             //QueueV2(); 
 
-            QueueV3();
+            //QueueV3();
 
             Console.ReadLine();
+        }
+
+        static void QueueTemplateFunction()
+        {
+            QueueTemplateV3<string> strque = new QueueTemplateV3<string>();
+            strque.Enqueue("123");
+
+            QueueTemplateV3<int> intque = new QueueTemplateV3<int>();
+
+
+           
         }
 
         static void Testmessage()
