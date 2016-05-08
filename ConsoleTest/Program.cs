@@ -26,7 +26,9 @@ namespace ConsoleTest
 
             //QueueV3();
 
-            Inheritence();
+            //Inheritence();
+
+            Student();
 
             Console.ReadLine();
         }
@@ -38,18 +40,22 @@ namespace ConsoleTest
             Uncle Hari = new Uncle("Hari");
             Me Shyam = new Me("Shyam");
 
-            Console.WriteLine("Gran Father Details :");
-            Console.WriteLine(surya.FirstName);
-            Console.WriteLine(surya.LastName);
+            //Console.WriteLine("Gran Father Details :");
+            //Console.WriteLine(surya.FirstName);
+            //Console.WriteLine(surya.LastName);
 
-            Console.WriteLine("Father's Detail :");
-            Console.WriteLine(Chandra.FirstName + " " + Chandra.MiddleName + " " + Chandra.LastName);
+            //Console.WriteLine("Father's Detail :");
+            //Console.WriteLine(Chandra.FirstName + " " + Chandra.MiddleName + " " + Chandra.LastName);
 
-            Console.WriteLine("Uncle's Detail :");
-            Console.WriteLine(Hari.FirstName + " " + Hari.LastName);
+            //Console.WriteLine("Uncle's Detail :");
+            //Console.WriteLine(Hari.FirstName + " " + Hari.LastName);
 
-            Console.WriteLine("My Details : ");
-            Console.WriteLine(Shyam.FirstName + " " + Shyam.MiddleName + " " + Shyam.LastName);
+            //Console.WriteLine("My Details : ");
+            //Console.WriteLine(Shyam.FirstName + " " + Shyam.MiddleName + " " + Shyam.LastName);
+
+
+            Console.WriteLine(surya.ToString());
+            Console.WriteLine(Chandra.ToString());
         }
 
         static void QueueTemplateFunction()
@@ -256,6 +262,38 @@ namespace ConsoleTest
             {
                 Console.WriteLine("Item -> " + item);
             }
+        }
+
+        static void Student()
+        {
+            List<Subject> sub = new List<Subject>();
+            sub.Add(new Subject() { SubjectName = "Math", TheoryMarks = 40, PracticalMarks = 15, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Nepali", TheoryMarks = 30, PracticalMarks = 13, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Science", TheoryMarks = 45, PracticalMarks = 18, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Social", TheoryMarks = 44, PracticalMarks = 16, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Enlish", TheoryMarks = 43, PracticalMarks = 12, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Computer", TheoryMarks = 47, PracticalMarks = 12, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Optional Math", TheoryMarks = 45, PracticalMarks = 13, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Account", TheoryMarks = 49, PracticalMarks = 12, FullMarks = 100 });
+
+            Students st = new Students("Test Student", 123, sub);
+            
+            Console.WriteLine(st.Name+" "+st.Total+" "+st.Percentage+" "+st.Division);
+
+            sub.Clear();
+            sub.Add(new Subject() { SubjectName = "Math", TheoryMarks = 60, PracticalMarks = 15, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Nepali", TheoryMarks = 30, PracticalMarks = 13, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Science", TheoryMarks = 45, PracticalMarks = 18, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Social", TheoryMarks = 64, PracticalMarks = 16, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Enlish", TheoryMarks = 63, PracticalMarks = 12, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Computer", TheoryMarks = 57, PracticalMarks = 12, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Optional Math", TheoryMarks = 45, PracticalMarks = 13, FullMarks = 100 });
+            sub.Add(new Subject() { SubjectName = "Account", TheoryMarks = 59, PracticalMarks = 12, FullMarks = 100 });
+
+            st.Subject = sub;
+
+            Console.WriteLine(st.Name + " " + st.Total + " " + st.Percentage + " " + st.Division);
+
         }
     }
 }

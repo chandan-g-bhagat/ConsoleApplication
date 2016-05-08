@@ -31,7 +31,17 @@ namespace TestLibrary.Inheritence
             this._firstName = FirstName;
             this._lastName = "Thapa";
         }
+        
 
+        public virtual string Details()
+        {
+            return this._firstName + " " + this._lastName;
+        }
+
+        public override string ToString()
+        {
+            return this._firstName + " " + this._lastName;
+        }
     }
 
     public class Father : GrandFather
@@ -54,8 +64,15 @@ namespace TestLibrary.Inheritence
             this._middleName = MiddleName;
         }
 
-        
+        public override string Details()
+        {
+            return this._firstName + " " + this._middleName + " " + this._lastName;
+        }
 
+        public override string ToString()
+        {
+            return this._firstName + " " + this._middleName + " " + this._lastName;
+        }
     }
 
 
