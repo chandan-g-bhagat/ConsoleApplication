@@ -28,7 +28,9 @@ namespace ConsoleTest
 
             //Inheritence();
 
-            Student();
+            //Student();
+
+            AbstractExample();
 
             Console.ReadLine();
         }
@@ -293,6 +295,77 @@ namespace ConsoleTest
             st.Subject = sub;
 
             Console.WriteLine(st.Name + " " + st.Total + " " + st.Percentage + " " + st.Division);
+
+        }
+
+        static void AbstractExample()
+        {
+            var tmp1 = GetVehicle(1); // car
+            var tmp2 = GetVehicle(2); // bike
+            var tmp3 = GetVehicle(3); // bus
+
+            
+            
+
+            Console.WriteLine("Car");
+            tmp1.Run();
+            tmp1.NumberofTyres();
+
+            Console.WriteLine();
+            Console.WriteLine("Bike before casting");
+
+            tmp2.Run();
+            tmp2.NumberofTyres();
+
+            Console.WriteLine();
+            Console.WriteLine("Bus");
+
+            tmp3.Run();
+            tmp3.NumberofTyres();
+
+            Console.WriteLine();
+            Console.WriteLine("Bike after casting");
+
+            if (tmp1.GetType() == typeof(Bike))
+            {
+                var tmp = (Bike)tmp1;
+                tmp.Run();
+                tmp.NumberofTyres();
+                tmp.Steer();
+            }
+
+            if (tmp2.GetType() == typeof(Bike))
+            {
+                var tmp = (Bike)tmp2;
+                tmp.Run();
+                tmp.NumberofTyres();
+                tmp.Steer();
+            }
+
+            if (tmp3.GetType() == typeof(Bike))
+            {
+                var tmp = (Bike)tmp3;
+                tmp.Run();
+                tmp.NumberofTyres();
+                tmp.Steer();
+            }
+
+        }
+
+        static Vehicle GetVehicle(int i)
+        {
+            if (i%3==0)
+            {
+                return new Bus();
+            }
+            else if(i%3==1)
+            {
+                return new Car();
+            }
+            else
+            {
+                return new Bike();
+            }
 
         }
     }

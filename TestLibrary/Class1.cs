@@ -25,4 +25,54 @@ namespace TestLibrary
             return j;
         }
     }
+
+    public abstract class Vehicle
+    {
+        public abstract void Run();
+
+        public abstract void NumberofTyres();
+
+        
+    }
+
+    public class Car : Vehicle
+    {
+        public override void Run()
+        {
+            Console.WriteLine("Runs on petrol, 4 wheel");
+        }
+
+        public override void NumberofTyres()
+        {
+            Console.WriteLine("4 tyres");
+        }
+    }
+
+    public class Bus : Vehicle
+    {
+        public override void Run()
+        {
+            Console.WriteLine("Runs on Diesel,4 wheeler");
+        }
+        public override void NumberofTyres()
+        {
+            Console.WriteLine("6 tyres");
+        }
+    }
+
+    public class Bike : Vehicle
+    {
+        public override void Run()
+        {
+            Console.WriteLine("2 wheeler");
+        }
+        public override void NumberofTyres()
+        {
+            Console.WriteLine("2 tyres");
+        }
+        public void Steer()
+        {
+            Console.WriteLine("Handle");
+        }
+    }
 }
