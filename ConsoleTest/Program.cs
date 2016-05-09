@@ -300,55 +300,88 @@ namespace ConsoleTest
 
         static void AbstractExample()
         {
-            var tmp1 = GetVehicle(1); // car
-            var tmp2 = GetVehicle(2); // bike
-            var tmp3 = GetVehicle(3); // bus
+
+            for (int i = 0; i < 3; i++)
+            {
+                var tmps1 = GetVehicle(i);
+                tmps1.Run();
+                tmps1.NumberofTyres();
+
+                Console.WriteLine("After casting : ");
+                if (tmps1.GetType() == typeof(Bike))
+                {
+                    var tmp = (Bike)tmps1;
+                    tmp.Run();
+                    tmp.NumberofTyres();
+                    tmp.Steer();
+                }
+
+                if (tmps1.GetType() == typeof(Car))
+                {
+                    var tmp = (Car)tmps1;
+                    tmp.Run();
+                    tmp.NumberofTyres();
+                    
+                }
+
+                if (tmps1.GetType() == typeof(Bus))
+                {
+                    var tmp = (Bus)tmps1;
+                    tmp.Run();
+                    tmp.NumberofTyres();
+                }
+
+            }
+
+            //var tmp1 = GetVehicle(1); // car
+            //var tmp2 = GetVehicle(2); // bike
+            //var tmp3 = GetVehicle(3); // bus
 
             
             
 
-            Console.WriteLine("Car");
-            tmp1.Run();
-            tmp1.NumberofTyres();
+            //Console.WriteLine("Car");
+            //tmp1.Run();
+            //tmp1.NumberofTyres();
 
-            Console.WriteLine();
-            Console.WriteLine("Bike before casting");
+            //Console.WriteLine();
+            //Console.WriteLine("Bike before casting");
 
-            tmp2.Run();
-            tmp2.NumberofTyres();
+            //tmp2.Run();
+            //tmp2.NumberofTyres();
 
-            Console.WriteLine();
-            Console.WriteLine("Bus");
+            //Console.WriteLine();
+            //Console.WriteLine("Bus");
 
-            tmp3.Run();
-            tmp3.NumberofTyres();
+            //tmp3.Run();
+            //tmp3.NumberofTyres();
 
-            Console.WriteLine();
-            Console.WriteLine("Bike after casting");
+            //Console.WriteLine();
+            //Console.WriteLine("Bike after casting");
 
-            if (tmp1.GetType() == typeof(Bike))
-            {
-                var tmp = (Bike)tmp1;
-                tmp.Run();
-                tmp.NumberofTyres();
-                tmp.Steer();
-            }
+            //if (tmp1.GetType() == typeof(Bike))
+            //{
+            //    var tmp = (Bike)tmp1;
+            //    tmp.Run();
+            //    tmp.NumberofTyres();
+            //    tmp.Steer();
+            //}
 
-            if (tmp2.GetType() == typeof(Bike))
-            {
-                var tmp = (Bike)tmp2;
-                tmp.Run();
-                tmp.NumberofTyres();
-                tmp.Steer();
-            }
+            //if (tmp2.GetType() == typeof(Bike))
+            //{
+            //    var tmp = (Bike)tmp2;
+            //    tmp.Run();
+            //    tmp.NumberofTyres();
+            //    tmp.Steer();
+            //}
 
-            if (tmp3.GetType() == typeof(Bike))
-            {
-                var tmp = (Bike)tmp3;
-                tmp.Run();
-                tmp.NumberofTyres();
-                tmp.Steer();
-            }
+            //if (tmp3.GetType() == typeof(Bike))
+            //{
+            //    var tmp = (Bike)tmp3;
+            //    tmp.Run();
+            //    tmp.NumberofTyres();
+            //    tmp.Steer();
+            //}
 
         }
 
