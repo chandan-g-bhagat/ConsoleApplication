@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using TestLibrary;
 using TestLibrary.Computer;
 using TestLibrary.Inheritence;
+using TestLibrary.Interface;
+using TestLibrary.CustomException;
 namespace ConsoleTest
 {
     class Program
@@ -30,7 +32,11 @@ namespace ConsoleTest
 
             //Student();
 
-            AbstractExample();
+            //AbstractExample();
+
+            //Interface();
+
+            CustomException();
 
             Console.ReadLine();
         }
@@ -308,9 +314,9 @@ namespace ConsoleTest
                 tmps1.NumberofTyres();
 
                 Console.WriteLine("After casting : ");
-                if (tmps1.GetType() == typeof(Bike))
+                if (tmps1.GetType() == typeof(TestLibrary.Bike))
                 {
-                    var tmp = (Bike)tmps1;
+                    var tmp = (TestLibrary.Bike)tmps1;
                     tmp.Run();
                     tmp.NumberofTyres();
                     tmp.Steer();
@@ -324,9 +330,9 @@ namespace ConsoleTest
                     
                 }
 
-                if (tmps1.GetType() == typeof(Bus))
+                if (tmps1.GetType() == typeof(TestLibrary.Bus))
                 {
-                    var tmp = (Bus)tmps1;
+                    var tmp = (TestLibrary.Bus)tmps1;
                     tmp.Run();
                     tmp.NumberofTyres();
                 }
@@ -389,7 +395,7 @@ namespace ConsoleTest
         {
             if (i%3==0)
             {
-                return new Bus();
+                return new TestLibrary.Bus();
             }
             else if(i%3==1)
             {
@@ -397,9 +403,68 @@ namespace ConsoleTest
             }
             else
             {
-                return new Bike();
+                return new TestLibrary.Bike();
             }
 
+        }
+
+        static void Interface()
+        {
+            car c = new car();
+            TestLibrary.Interface.Bike b = new TestLibrary.Interface.Bike();
+            Vehicles v = (Vehicles)c;
+
+            v.PrintVal();
+
+            v = (Vehicles)b;
+
+            v.PrintVal();
+
+            TestLibrary.Interface.Bus bus = new TestLibrary.Interface.Bus();
+            Vehicle1 v1 = (Vehicle1)bus;
+
+            v1.PrintData();
+
+            v1 = (Vehicle1)c;
+
+            v1.PrintData();
+
+            TestInterface t = (TestInterface)b;
+            t.test();
+
+            t = (TestInterface)bus;
+            t.test();
+
+            Common com = (Common)c;
+            com.run(12);
+            com = (Common)b;
+            com.run(14);
+            com = (Common)bus;
+            com.run(50);
+
+        }
+
+
+        static void Divide(int a, int b)
+        {
+            try
+            {
+                Console.WriteLine(MyExceptionExample.Divide(a,b ));
+            }
+            catch (Divideby5Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        static void CustomException()
+        {
+            Divide(10, 5);
+            Divide(10, 10);
+            Divide(10, 0);
         }
     }
 }
