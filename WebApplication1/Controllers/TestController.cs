@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class TestController : Controller
     {
         // GET: Test
@@ -32,6 +33,7 @@ namespace WebApplication1.Controllers
             return View("Index");
         }
 
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();

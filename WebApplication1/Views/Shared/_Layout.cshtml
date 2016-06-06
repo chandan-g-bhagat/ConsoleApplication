@@ -9,6 +9,9 @@
 
 </head>
 <body>
+    <div id="LoadingImage" class="hidden" style="position:absolute;z-index:1000;">
+        <img src="~/Images/preloader.gif" style="height:800px;"/>
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,13 +26,22 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    
+                    @if (Convert.ToBoolean(Session["Islogged"]))
+                    {
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+
+                    
+                        }
+                    
                 </ul>
-          @*      @Html.Partial("_LoginPartial")*@
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
+
         @RenderBody()
         <hr />
         <footer>
@@ -40,5 +52,13 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        function ShowLoader() {
+            $("#LoadingImage").removeClass("hidden");
+        }
+        function HideLoader() {
+            $("#LoadingImage").addClass("hidden");
+        }
+    </script>
 </body>
 </html>

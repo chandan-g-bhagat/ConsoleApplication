@@ -13,6 +13,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -22,6 +23,9 @@ namespace WebApplication1.Controllers
 
         public ActionResult Contact()
         {
+            if (!Convert.ToBoolean(Session["Islogged"]))
+                return RedirectToAction("Login", "User");
+                    
             ViewBag.Message = "Your contact page.";
 
             return View();
