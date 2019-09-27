@@ -32,7 +32,6 @@ namespace TestLibrary
 
         public abstract void NumberofTyres();
 
-        
     }
 
     public class Car : Vehicle
